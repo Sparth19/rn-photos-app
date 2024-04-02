@@ -6,6 +6,7 @@ export const Colors = {
   greyTheme1: '#4B4B4B',
   greyTheme2: '#8E8E8E',
   searchGrey: '#1C1C1E',
+  redTheme1: '#E60023',
 };
 
 export const Fonts = {
