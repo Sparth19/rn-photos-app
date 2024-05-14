@@ -1,4 +1,4 @@
-package com.photosapp
+package com.visualvista
 
 import android.app.Application
 import com.facebook.react.PackageList

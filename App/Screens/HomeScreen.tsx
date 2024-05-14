@@ -8,6 +8,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import {Colors, FONT_SIZE, Fonts} from '../Themes/AppTheme';
 import {fetchPhotos, searchPhotos} from '../Helper/api';
@@ -92,6 +93,7 @@ const HomeScreen: FC = () => {
 
   return (
     <SafeAreaView style={styles.mainScreen}>
+      <StatusBar backgroundColor={Colors.black} barStyle={'light-content'} />
       <View style={styles.searchBar}>
         <TextInput
           style={styles.input}
@@ -101,7 +103,9 @@ const HomeScreen: FC = () => {
           placeholderTextColor={Colors.white}
           cursorColor={Colors.white}
         />
-        <TouchableOpacity onPress={() => handleSearchTextChange('')}>
+        <TouchableOpacity
+          onPress={() => handleSearchTextChange('')}
+          hitSlop={{top: 10, right: 10, bottom: 10, left: 10}}>
           <Image
             source={require('../Assets/Media/Close.png')}
             style={styles.image}
@@ -147,7 +151,7 @@ const styles = StyleSheet.create({
     paddingVertical: 0,
   },
   searchBar: {
-    height: Metrics.rfv(35),
+    height: Metrics.rfv(40),
     backgroundColor: Colors.greyTheme1,
     marginHorizontal: Metrics.rfv(15),
     borderRadius: Metrics.rfv(5),
@@ -180,8 +184,8 @@ const styles = StyleSheet.create({
     marginLeft: Metrics.rfv(15),
   },
   image: {
-    height: Metrics.rfv(18),
-    width: Metrics.rfv(18),
+    height: Metrics.rfv(22),
+    width: Metrics.rfv(22),
   },
   retryBtn: {
     backgroundColor: Colors.white,

@@ -1,4 +1,4 @@
-package com.photosapp
+package com.visualvista
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
