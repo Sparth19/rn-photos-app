@@ -6,7 +6,6 @@ import {
   Text,
   TextInput,
   View,
-  Image,
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
@@ -18,6 +17,8 @@ import CardItem from '../Components/CardItem';
 import Metrics from '../Themes/Metrics';
 import {useDebouncedCallback} from 'use-debounce';
 import {isIphoneNotch} from '../Themes/iPhoneX';
+import FastImage from 'react-native-fast-image';
+import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const HomeScreen: FC = () => {
   const [data, setData] = useState<Photo[]>([]);
@@ -106,9 +107,10 @@ const HomeScreen: FC = () => {
         <TouchableOpacity
           onPress={() => handleSearchTextChange('')}
           hitSlop={{top: 10, right: 10, bottom: 10, left: 10}}>
-          <Image
-            source={require('../Assets/Media/Close.png')}
-            style={styles.image}
+          <IconMC
+            name={'close-circle'}
+            color={Colors.white}
+            size={Metrics.rfv(23)}
           />
         </TouchableOpacity>
       </View>
