@@ -9,7 +9,7 @@ export const fetchPhotos = async (page = 1): Promise<ApiResponse> => {
 
   try {
     const response = await fetch(
-      `https://api.pexels.com/v1/curated?page=${page}&per_page=15`,
+      `https://api.pexels.com/v1/curated/?page=${page}&per_page=15`,
       {
         method: 'GET',
         headers: {
