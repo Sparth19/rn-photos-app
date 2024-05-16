@@ -1,6 +1,6 @@
 {
   "name": "PhotosApp",
-  "version": "0.0.1",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -8,14 +8,21 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
+    "postinstall": "patch-package",
     "bundle": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res"
-
   },
   "dependencies": {
     "@react-native-seoul/masonry-list": "^1.4.2",
+    "lodash": "^4.17.21",
+    "patch-package": "^8.0.0",
     "react": "18.2.0",
     "react-native": "0.73.6",
+    "react-native-devsettings": "^1.0.5",
     "react-native-dotenv": "^3.4.11",
+    "react-native-fast-image": "^8.6.3",
+    "react-native-modal": "^13.0.1",
+    "react-native-vector-icons": "^10.1.0",
+    "rn-fetch-blob": "^0.12.0",
     "use-debounce": "^10.0.0"
   },
   "devDependencies": {
@@ -26,7 +33,9 @@
     "@react-native/eslint-config": "0.73.2",
     "@react-native/metro-config": "0.73.5",
     "@react-native/typescript-config": "0.73.1",
+    "@types/lodash": "^4.17.1",
     "@types/react": "^18.2.6",
+    "@types/react-native-vector-icons": "^6.4.18",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.6.3",
     "eslint": "^8.19.0",

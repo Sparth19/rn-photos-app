@@ -6,8 +6,8 @@ import {
   Text,
   TextInput,
   View,
-  Image,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import {Colors, FONT_SIZE, Fonts} from '../Themes/AppTheme';
 import {fetchPhotos, searchPhotos} from '../Helper/api';
@@ -17,6 +17,8 @@ import CardItem from '../Components/CardItem';
 import Metrics from '../Themes/Metrics';
 import {useDebouncedCallback} from 'use-debounce';
 import {isIphoneNotch} from '../Themes/iPhoneX';
+import FastImage from 'react-native-fast-image';
+import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const HomeScreen: FC = () => {
   const [data, setData] = useState<Photo[]>([]);
@@ -92,6 +94,7 @@ const HomeScreen: FC = () => {
 
   return (
     <SafeAreaView style={styles.mainScreen}>
+      <StatusBar backgroundColor={Colors.black} barStyle={'light-content'} />
       <View style={styles.searchBar}>
         <TextInput
           style={styles.input}
@@ -101,10 +104,13 @@ const HomeScreen: FC = () => {
           placeholderTextColor={Colors.white}
           cursorColor={Colors.white}
         />
-        <TouchableOpacity onPress={() => handleSearchTextChange('')}>
-          <Image
-            source={require('../Assets/Media/Close.png')}
-            style={styles.image}
+        <TouchableOpacity
+          onPress={() => handleSearchTextChange('')}
+          hitSlop={{top: 10, right: 10, bottom: 10, left: 10}}>
+          <IconMC
+            name={'close-circle'}
+            color={Colors.white}
+            size={Metrics.rfv(23)}
           />
         </TouchableOpacity>
       </View>
@@ -147,7 +153,7 @@ const styles = StyleSheet.create({
     paddingVertical: 0,
   },
   searchBar: {
-    height: Metrics.rfv(35),
+    height: Metrics.rfv(40),
     backgroundColor: Colors.greyTheme1,
     marginHorizontal: Metrics.rfv(15),
     borderRadius: Metrics.rfv(5),
@@ -180,8 +186,8 @@ const styles = StyleSheet.create({
     marginLeft: Metrics.rfv(15),
   },
   image: {
-    height: Metrics.rfv(18),
-    width: Metrics.rfv(18),
+    height: Metrics.rfv(22),
+    width: Metrics.rfv(22),
   },
   retryBtn: {
     backgroundColor: Colors.white,
